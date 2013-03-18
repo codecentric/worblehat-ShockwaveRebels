@@ -11,6 +11,7 @@ public class BookDataFormData {
 	private String year;
 	private String isbn;
 	private String author;
+	private String description;
 
 	public String getYear() {
 		return year;
@@ -26,6 +27,14 @@ public class BookDataFormData {
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getAuthor() {
@@ -56,7 +65,7 @@ public class BookDataFormData {
 	public String toString() {
 		return "BookDataFormData [title=" + title + ", edition=" + edition
 				+ ", year=" + year + ", isbn=" + isbn + ", author=" + author
-				+ "]";
+				+ ", description=" + description + "]";
 	}
 
 }
