@@ -38,7 +38,7 @@ public class ReturnOneBookController {
 			ModelMap modelMap,
 			@ModelAttribute("returnOneBookFormData") ReturnOneBookFormData formData,
 			BindingResult result) {
-		// validateReturnOneBook.validate(formData, result);
+		validateReturnOneBook.validate(formData, result);
 		if (result.hasErrors()) {
 			return "/returnOneBook";
 		} else {
