@@ -33,6 +33,7 @@ public class Book implements Serializable {
 	private String author;
 	private String edition;
 	private String isbn;
+	private String description;
 	private int year;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -58,15 +59,18 @@ public class Book implements Serializable {
 	 *            the isbn
 	 * @param year
 	 *            the year
+	 * @param description
+	 *            the Book Description
 	 */
 	public Book(String title, String author, String edition, String isbn,
-			int year) {
+			int year, String description) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.edition = edition;
 		this.isbn = isbn;
 		this.year = year;
+		this.description = description;
 	}
 
 	public long getId() {
@@ -91,6 +95,10 @@ public class Book implements Serializable {
 
 	public int getYear() {
 		return year;
+	}
+
+	public String getDescription() {
+		return description;
 	}
 
 	public Borrowing getCurrentBorrowing() {
