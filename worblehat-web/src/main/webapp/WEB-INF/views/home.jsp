@@ -18,6 +18,6 @@
    <li><a href="<spring:url value="/myBooks" htmlEscape="true" />">Show Books form mail</a></li>
 </ul>
 
-<a>Version:PROJECT_VERSION</a>
+<a>Version:<%=de.codecentric.psd.worblehat.web.controller.PropertyReader.getVersion()%></a>
 </body>
 </html>
