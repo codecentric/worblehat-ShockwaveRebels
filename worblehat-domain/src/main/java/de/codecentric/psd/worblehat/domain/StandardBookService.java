@@ -35,6 +35,17 @@ public class StandardBookService implements BookService {
 			book.returnBook();
 
 		}
+	}
+
+	@Override
+	public void returnOneBookByBorrower(String isbn, String string) {
+		List<Book> borrowBooks = bookRepository
+				.findAllBorrowBooksByBorrower(string);
+		for (Book book : borrowBooks) {
+			if (book.getIsbn().equals(isbn))
+				book.returnBook();
+
+		}
 
 	}
 }

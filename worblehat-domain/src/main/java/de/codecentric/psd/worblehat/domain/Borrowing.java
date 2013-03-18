@@ -38,6 +38,11 @@ public class Borrowing implements Serializable {
 		return borrowDate;
 	}
 
+	public Date getReturnDate() {
+		int daysToReturn = 28;
+		return new Date(borrowDate.getTime() + daysToReturn * 24 * 3600 * 1000);
+	}
+
 	Borrowing(String borrowerEmailAddress, Date borrowDate) {
 		super();
 		this.borrowerEmailAddress = borrowerEmailAddress;
