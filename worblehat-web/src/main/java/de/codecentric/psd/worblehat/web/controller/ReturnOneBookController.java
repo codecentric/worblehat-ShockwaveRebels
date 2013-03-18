@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import de.codecentric.psd.worblehat.domain.BookService;
 import de.codecentric.psd.worblehat.web.command.ReturnOneBookFormData;
+import de.codecentric.psd.worblehat.web.validator.ValidateReturnOneBook;
 
 /**
  * Controller class for the
@@ -37,7 +38,7 @@ public class ReturnOneBookController {
 			ModelMap modelMap,
 			@ModelAttribute("returnOneBookFormData") ReturnOneBookFormData formData,
 			BindingResult result) {
-		validateReturnOneBook.validate(formData, result);
+		// validateReturnOneBook.validate(formData, result);
 		if (result.hasErrors()) {
 			return "/returnOneBook";
 		} else {
