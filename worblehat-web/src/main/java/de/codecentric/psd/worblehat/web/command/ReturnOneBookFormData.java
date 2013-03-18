@@ -6,7 +6,6 @@ package de.codecentric.psd.worblehat.web.command;
  * @author psd
  * 
  */
-
 public class ReturnOneBookFormData {
 
 	/**

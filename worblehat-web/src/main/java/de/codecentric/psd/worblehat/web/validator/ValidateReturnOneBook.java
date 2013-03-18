@@ -1,6 +1,7 @@
 package de.codecentric.psd.worblehat.web.validator;
 
-import javax.xml.bind.Validator;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 /**
  * 
@@ -9,7 +10,6 @@ import javax.xml.bind.Validator;
  * @author psd
  * 
  */
-
 public class ValidateReturnOneBook implements Validator {
 
 	@Override
