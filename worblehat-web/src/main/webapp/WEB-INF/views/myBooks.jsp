@@ -1,23 +1,32 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page session="false"%>
 <html>
 <head>
-<title>Borrow book - Worblehat Bookmanager</title>
+	<title>Show Books</title>
 </head>
 <body>
-	<h1>Show My Books</h1>
-
-	<form:form commandName="borrowFormData" method="POST">
-            Email:<form:input id="email" path="email" />
-		<form:errors path="email" />
-		<br />
-		<input type="submit" id="showBooks" value="Show Book" />
-		<hr />
-		<a href="<spring:url value="/" htmlEscape="true" />">Back to Home</a>
-	</form:form>
-
-
+	<table>
+	<thead>  
+		<tr>
+			<th>Date</th>
+			<th>Title</th>
+			<th>ISBN</th>
+		</tr>
+	</thead>
+	<tbody>
+	<c:forEach items="${books}" var="book">
+		<tr>
+			<td>${book.currentBorrowing.borrowDate}</td>
+			<td>${book.title}</td>
+			<td>${book.isbn}</td>
+		</tr>
+	</c:forEach>
+	</tbody>
+	</table>
+	<hr />
+	<a href="<spring:url value="/" htmlEscape="true" />">Back to Home</a>
 </body>
 </html>
