@@ -1,6 +1,5 @@
 package de.codecentric.psd.worblehat.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -38,21 +37,6 @@ public class BookListController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String setupForm(ModelMap modelMap) {
 		List<Book> books = bookRepository.findAllBooks();
-		modelMap.addAttribute("books", books);
-		return "bookList";
-	}
-
-	@RequestMapping(method = RequestMethod.GET)
-	public String setupForm(ModelMap modelMap, String emailAddress) {
-		List<Book> tmp = bookRepository.findAllBooks();
-		List<Book> books = new ArrayList<Book>();
-
-		for (int i = 0; i < tmp.size(); i++) {
-			if (tmp.get(i).getCurrentBorrowing().getBorrowerEmailAddress()
-					.equals(emailAddress)) {
-				books.add(tmp.get(i));
-			}
-		}
 		modelMap.addAttribute("books", books);
 		return "bookList";
 	}
