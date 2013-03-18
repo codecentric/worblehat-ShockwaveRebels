@@ -19,7 +19,7 @@ import de.codecentric.psd.worblehat.web.command.ReturnOneBookFormData;
  * 
  */
 @Controller
-@RequestMapping("/returnOneBook")
+@RequestMapping("/oneBook")
 public class ReturnOneBookController {
 
 	ValidateReturnOneBook validateReturnOneBook = new ValidateReturnOneBook();
