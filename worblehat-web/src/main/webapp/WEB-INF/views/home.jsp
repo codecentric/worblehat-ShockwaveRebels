@@ -17,5 +17,7 @@
    <li><a id="returnOneBook" href="<spring:url value="/returnOneBook" htmlEscape="true" />">Return one Book</a></li>
    <li><a href="<spring:url value="/myBooks" htmlEscape="true" />">Show Books form mail</a></li>
 </ul>
+
+<a>Version:PROJECT_VERSION</a>
 </body>
 </html>
