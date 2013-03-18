@@ -21,7 +21,7 @@ import de.codecentric.psd.worblehat.domain.BookRepository;
  */
 
 @Controller
-@RequestMapping("/bookList")
+@RequestMapping("/myBooks")
 public class BookListByMailController {
 
 	@Inject
@@ -46,6 +46,19 @@ public class BookListByMailController {
 				books.add(tmp.get(i));
 			}
 		}
+
+		for (int i = 0; i < books.size(); i++) {
+			for (int j = 0; j < books.size(); j++) {
+				if (books.get(i).getCurrentBorrowing().getBorrowDate()
+						.getTime() > books.get(j).getCurrentBorrowing()
+						.getBorrowDate().getTime()) {
+					Book tempBook = books.get(i);
+					books.set(i, books.get(j));
+					books.set(j, tempBook);
+				}
+			}
+		}
+
 		modelMap.addAttribute("books", books);
 		return "bookList";
 	}
