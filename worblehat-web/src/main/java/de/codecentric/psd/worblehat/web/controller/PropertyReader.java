@@ -3,6 +3,13 @@ package de.codecentric.psd.worblehat.web.controller;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Controller class for the
+ * 
+ * @author psd
+ * 
+ */
+
 public class PropertyReader {
 
 	public static String getVersion() throws FileNotFoundException, IOException {
