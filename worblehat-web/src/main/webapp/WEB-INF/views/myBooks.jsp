@@ -9,8 +9,8 @@
 </head>
 <body>
 
-<form:form commandName="bookDataFormData" method="POST">
-            Mail:<form:input id="mail" path="mail"/>
+<form:form commandName="mailFormData" method="POST">
+            Mail:<form:input id="email" path="email"/>
 		<input type="submit" id="showBooks" value="Show Books" />
 		<hr/>
 	</form:form>
