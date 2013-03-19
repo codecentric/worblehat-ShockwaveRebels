@@ -1,6 +1,5 @@
 package de.codecentric.psd.worblehat.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -37,29 +36,25 @@ public class BookListByMailController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String setupForm(ModelMap modelMap, String emailAddress) {
-		List<Book> tmp = bookRepository.findAllBooks();
-		List<Book> books = new ArrayList<Book>();
 
-		for (int i = 0; i < tmp.size(); i++) {
-			if (tmp.get(i).getCurrentBorrowing().getBorrowerEmailAddress()
-					.equals(emailAddress)) {
-				books.add(tmp.get(i));
-			}
-		}
-
-		for (int i = 0; i < books.size(); i++) {
-			for (int j = 0; j < books.size(); j++) {
-				if (books.get(i).getCurrentBorrowing().getBorrowDate()
-						.getTime() > books.get(j).getCurrentBorrowing()
-						.getBorrowDate().getTime()) {
-					Book tempBook = books.get(i);
-					books.set(i, books.get(j));
-					books.set(j, tempBook);
-				}
-			}
-		}
-
+		List<Book> books = bookRepository
+				.findAllBorrowBooksByBorrower(emailAddress);
 		modelMap.addAttribute("books", books);
 		return "bookList";
+
+		// for (int i = 0; i < books.size(); i++) {
+		// for (int j = 0; j < books.size(); j++) {
+		// if (books.get(i).getCurrentBorrowing().getBorrowDate()
+		// .getTime() > books.get(j).getCurrentBorrowing()
+		// .getBorrowDate().getTime()) {
+		// Book tempBook = books.get(i);
+		// books.set(i, books.get(j));
+		// books.set(j, tempBook);
+		// }
+		// }
+		// }
+
+		// modelMap.addAttribute("books", books);
+		// return "bookList";
 	}
 }
