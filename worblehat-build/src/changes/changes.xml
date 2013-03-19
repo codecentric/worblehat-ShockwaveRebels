@@ -28,9 +28,18 @@
 		<release version="2.3.0" date="2013-03-19"
 			description="Release with much improved functionality">
 			<action dev="Shockwave Rebels" type="update">
-				- Version number is shown on main page\n
-				- Books have a description (in show/add books)\n
-				- A renter can see all borrowed books (title and ISBN) which sorted by return date\n 
+				- Version number is shown on main page &#xD
+				- Books have a description (in show/add books) &#xD
+				- A renter can see all borrowed books (title and ISBN) which sorted by return date 
+		</action>
+		</release>
+		<release version="2.4.0" date="2013-03-19"
+			description="Release with much improved functionality">
+			<action dev="Shockwave Rebels" type="update">
+				- Linefeed in change log &#xD
+				- Size of input text field enlarged (add book) &#xD
+				- Changed date format (YYYY-MM-TT, books by mail) &#xD
+				- Unique pair of books ISBN and title
 		</action>
 		</release>
 	</body>
