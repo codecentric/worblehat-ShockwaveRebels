@@ -49,7 +49,7 @@ public class StandarBorrowBookController {
 	@Transactional
 	@RequestMapping(method = RequestMethod.POST)
 	public String processSubmit(ModelMap modelMap,
-			@ModelAttribute("borrowFormData") BookBorrowFormData cmd,
+			@ModelAttribute("bookBorrowFormData") BookBorrowFormData cmd,
 			BindingResult result) {
 
 		validator.validate(cmd, result);
