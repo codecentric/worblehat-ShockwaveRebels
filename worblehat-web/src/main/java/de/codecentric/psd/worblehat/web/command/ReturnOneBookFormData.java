@@ -1,9 +1,12 @@
 package de.codecentric.psd.worblehat.web.command;
 
+/**
+ * This class represent the form data of the return book form.
+ * 
+ * @author psd
+ * 
+ */
 public class ReturnOneBookFormData {
-
-	private String emailAddress;
-	private String isbn;
 
 	/**
 	 * Empty constructor, required by Spring Framework.
@@ -20,6 +23,9 @@ public class ReturnOneBookFormData {
 		this.isbn = isbn;
 		this.emailAddress = emailAddress;
 	}
+
+	private String emailAddress;
+	private String isbn;
 
 	public String getISBNNumber() {
 		return isbn;
