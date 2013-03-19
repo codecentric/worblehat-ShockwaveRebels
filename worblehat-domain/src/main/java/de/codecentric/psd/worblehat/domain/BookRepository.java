@@ -48,13 +48,13 @@ public class BookRepository {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Book> findBooksByISBN(String isbn) {
-		Query query = em.createQuery("form Book where isbn =? ").setParameter(
+		Query query = em.createQuery("from Book where isbn =? ").setParameter(
 				1, isbn);
 		return query.getResultList();
 	}
 
 	public Book findBookByUserAndISBN(String email, String isbn) {
-		Query query = em.createQuery("form Book where isbn =? and email= ?")
+		Query query = em.createQuery("from Book where isbn =? and email= ?")
 				.setParameter(1, isbn).setParameter(2, email);
 		return (Book) query.getSingleResult();
 	}
@@ -106,6 +106,22 @@ public class BookRepository {
 	@SuppressWarnings("unchecked")
 	public List<Book> findAllBooks() {
 		Query query = em.createNamedQuery("findAllBooks");
+		return query.getResultList();
+	}
+
+	/**
+	 * Select a book by Titel and Author.
+	 * 
+	 * @param titel
+	 *            a valid Title of a book entity
+	 * @param author
+	 *            a valid Author of a book entity
+	 * @return null if no book found
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Book> findBooksByTitelAndAuthor(String title, String author) {
+		Query query = em.createQuery("from Book where title =? and author= ?")
+				.setParameter(1, title).setParameter(2, author);
 		return query.getResultList();
 	}
 

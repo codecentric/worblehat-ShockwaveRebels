@@ -1,11 +1,14 @@
 package de.codecentric.psd.worblehat.web.validator;
 
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.validator.ISBNValidator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import de.codecentric.psd.worblehat.domain.Book;
 import de.codecentric.psd.worblehat.web.command.BookDataFormData;
 
 /**
@@ -39,6 +42,13 @@ public class ValidateAddBook implements Validator {
 
 	}
 
+	public void validate(Object target, Errors errors, List<Book> books) {
+		BookDataFormData cmd = (BookDataFormData) target;
+		validate(target, errors);
+		checkThatBookDoesntExist(errors, cmd, books);
+
+	}
+
 	private void checkThatEditionisFilledAndValid(Errors errors,
 			BookDataFormData cmd) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "edition", "empty");
@@ -68,6 +78,17 @@ public class ValidateAddBook implements Validator {
 				errors.rejectValue("year", "notvalid");
 			} else if (StringUtils.length(cmd.getYear()) != 4) {
 				errors.rejectValue("year", "invalid.length");
+			}
+		}
+	}
+
+	private void checkThatBookDoesntExist(Errors errors, BookDataFormData cmd,
+			List<Book> books) {
+		for (int i = 0; i < books.size(); i++) {
+			if (!books.get(i).getAuthor().equals(cmd.getAuthor())
+					&& !books.get(i).getTitle().equals(cmd.getTitle())) {
+				errors.rejectValue("isbn", "bookAlreadyExists");
+				break;
 			}
 		}
 	}
