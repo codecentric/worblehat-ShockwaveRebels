@@ -4,6 +4,10 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.junit.Before;
@@ -12,6 +16,7 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 
+import de.codecentric.psd.worblehat.domain.Book;
 import de.codecentric.psd.worblehat.web.command.BookDataFormData;
 import de.codecentric.psd.worblehat.web.command.ReturnAllBooksFormData;
 
@@ -68,7 +73,8 @@ public class ValidateAddBookTest {
 		Errors errors = new BindException(cmd, "cmdBookdData");
 		validateAddBook.validate((BookDataFormData) cmd, errors);
 		assertThat(errors.getErrorCount(), is(0));
-		String errorFieldValue = errors.getFieldValue("title").toString();;
+		String errorFieldValue = errors.getFieldValue("title").toString();
+		;
 		assertThat(errorFieldValue, is(title));
 	}
 
@@ -245,5 +251,16 @@ public class ValidateAddBookTest {
 		Errors errors = mock(BindingResult.class);
 		ReturnAllBooksFormData returnAllBooksFormData = new ReturnAllBooksFormData();
 		validateAddBook.validate(returnAllBooksFormData, errors);
+	}
+
+	@Test
+	public void shouldFailWithDifferentISBN() {
+		String isbn = "1234567962";
+		List<Book> books = new ArrayList<Book>();
+		Errors errors = mock(BindingResult.class);
+		books.add(new Book(cmd.getTitle(), cmd.getTitle(), cmd.getEdition(),
+				isbn, 2000, "description"));
+		// validateAddBook.validateCheck((BookDataFormData) cmd, errors, books);
+		// Assert.assertEquals(1, errors.getErrorCount());
 	}
 }
