@@ -6,37 +6,25 @@ package de.codecentric.psd.worblehat.web.command;
  * @author psd
  * 
  */
-public class BookBorrowFormData {
+public class MailFormData {
 
-	private String isbn;
 	private String email;
 
 	/**
 	 * Empty constructor, required by Spring Framework.
 	 */
-	public BookBorrowFormData() {
+	public MailFormData() {
 		super();
 	}
 
 	/**
 	 * Constructor for testing.
 	 * 
-	 * @param isbn
-	 *            the isbn
 	 * @param email
 	 *            the user email address
 	 */
-	public BookBorrowFormData(String isbn, String email) {
-		this.isbn = isbn;
+	public MailFormData(String email) {
 		this.email = email;
-	}
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
 	}
 
 	public String getEmail() {

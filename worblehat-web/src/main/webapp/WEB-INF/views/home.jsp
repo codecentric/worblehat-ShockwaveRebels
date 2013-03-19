@@ -15,7 +15,7 @@
    <li><a href="<spring:url value="/borrow" htmlEscape="true" />">Borrow Book</a></li>
    <li><a id="returnAllBooks" href="<spring:url value="/returnAllBooks" htmlEscape="true" />">Return all Books</a></li>
    <li><a id="returnOneBook" href="<spring:url value="/returnOneBook" htmlEscape="true" />">Return one Book</a></li>
-   <li><a href="<spring:url value="/myBooks" htmlEscape="true" />">Show Books form mail</a></li>
+   <li><a href="<spring:url value="/myBooks" htmlEscape="true" />">Show Books by mail</a></li>
 </ul>
 
 </body>

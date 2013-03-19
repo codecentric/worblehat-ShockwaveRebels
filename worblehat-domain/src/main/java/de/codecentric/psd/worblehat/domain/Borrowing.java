@@ -39,7 +39,7 @@ public class Borrowing implements Serializable {
 	}
 
 	public Date getReturnDate() {
-		int daysToReturn = 28;
+		int daysToReturn = 14;
 		return new Date(borrowDate.getTime() + daysToReturn * 24 * 3600 * 1000);
 	}
 

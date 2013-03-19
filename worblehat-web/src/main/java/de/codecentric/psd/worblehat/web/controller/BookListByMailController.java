@@ -3,14 +3,18 @@ package de.codecentric.psd.worblehat.web.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import de.codecentric.psd.worblehat.domain.Book;
 import de.codecentric.psd.worblehat.domain.BookRepository;
+import de.codecentric.psd.worblehat.web.command.MailFormData;
 
 /**
  * Controller class for the book table result.
@@ -34,27 +38,36 @@ public class BookListByMailController {
 		this.bookRepository = bookRepository;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String setupForm(ModelMap modelMap, String emailAddress) {
+	@RequestMapping(method = RequestMethod.POST)
+	public String processSubmit(HttpServletRequest request, ModelMap modelMap,
+			@ModelAttribute("mailFormData") MailFormData cmd,
+			BindingResult result) {
+		modelMap.put("mailFormData", cmd);
+		// validateAddBook.validate(cmd, result);
 
-		List<Book> books = bookRepository
-				.findAllBorrowBooksByBorrower(emailAddress);
+		List<Book> books = bookRepository.findAllBorrowBooksByBorrower(cmd
+				.getEmail());
+
+		for (int i = 0; i < books.size(); i++) {
+			for (int j = 0; j < books.size(); j++) {
+				if (books.get(i).getCurrentBorrowing().getBorrowDate()
+						.getTime() < books.get(j).getCurrentBorrowing()
+						.getBorrowDate().getTime()) {
+					Book tempBook = books.get(i);
+					books.set(i, books.get(j));
+					books.set(j, tempBook);
+				}
+			}
+		}
+
 		modelMap.addAttribute("books", books);
-		return "bookList";
 
-		// for (int i = 0; i < books.size(); i++) {
-		// for (int j = 0; j < books.size(); j++) {
-		// if (books.get(i).getCurrentBorrowing().getBorrowDate()
-		// .getTime() > books.get(j).getCurrentBorrowing()
-		// .getBorrowDate().getTime()) {
-		// Book tempBook = books.get(i);
-		// books.set(i, books.get(j));
-		// books.set(j, tempBook);
-		// }
-		// }
-		// }
+		return "/myBooks";
+	}
 
-		// modelMap.addAttribute("books", books);
-		// return "bookList";
+	@RequestMapping(method = RequestMethod.GET)
+	public void setupForm(ModelMap modelMap) {
+		modelMap.put("mailFormData", new MailFormData());
+
 	}
 }

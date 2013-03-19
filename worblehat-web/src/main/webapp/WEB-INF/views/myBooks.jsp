@@ -8,10 +8,16 @@
 	<title>Show Books</title>
 </head>
 <body>
+
+<form:form commandName="mailFormData" method="POST">
+            Email:<form:input id="email" path="email"/>
+		<input type="submit" id="showBooks" value="Show Books" />
+		<hr/>
+	</form:form>
 	<table>
 	<thead>  
 		<tr>
-			<th>Date</th>
+			<th>Return-Date</th>
 			<th>Title</th>
 			<th>ISBN</th>
 		</tr>
@@ -19,7 +25,7 @@
 	<tbody>
 	<c:forEach items="${books}" var="book">
 		<tr>
-			<td>${book.currentBorrowing.borrowDate}</td>
+			<td>${book.currentBorrowing.returnDate}</td>
 			<td>${book.title}</td>
 			<td>${book.isbn}</td>
 		</tr>
