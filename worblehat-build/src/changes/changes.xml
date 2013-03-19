@@ -36,10 +36,10 @@
 		<release version="2.4.0" date="2013-03-19"
 			description="Release with much improved functionality">
 			<action dev="Shockwave Rebels" type="update">
-				- Linefeed in change log 
-				- Size of input text field enlarged (add book) 
-				- Changed date format (YYYY-MM-TT, books by mail) 
-				- Unique pair of books ISBN and title
+				<br /> - Linefeed in change log 
+				<br /> - Size of input text field enlarged (add book) 
+				<br /> - Changed date format (YYYY-MM-TT, books by mail) 
+				<br /> - Unique pair of books ISBN and title
 		</action>
 		</release>
 	</body>
