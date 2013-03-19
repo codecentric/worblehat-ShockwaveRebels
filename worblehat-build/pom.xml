@@ -5,7 +5,7 @@
 
 	<groupId>de.codecentric.psd</groupId>
 	<artifactId>worblehat-build</artifactId>
-	<version>2.3.0</version>
+	<version>2.3.1</version>
 	<name>worblehat-build</name>
 	<packaging>pom</packaging>
 
