@@ -6,7 +6,7 @@
 	<groupId>de.codecentric.psd</groupId>
 	<artifactId>worblehat-build</artifactId>
 	<version>2.3.0</version>
-	<name>worblehat-build TESTESTSET</name>
+	<name>worblehat-build</name>
 	<packaging>pom</packaging>
 
 	<properties>
