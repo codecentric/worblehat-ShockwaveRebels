@@ -260,7 +260,7 @@ public class ValidateAddBookTest {
 		Errors errors = mock(BindingResult.class);
 		books.add(new Book(cmd.getTitle(), cmd.getAuthor(), cmd.getEdition(),
 				isbn, 2000, "description"));
-		// validateAddBook.validateCheck((BookDataFormData) cmd, errors, books);
+		validateAddBook.validate((BookDataFormData) cmd, errors, books);
 		// Assert.assertEquals(1, errors.getErrorCount());
 	}
 }
