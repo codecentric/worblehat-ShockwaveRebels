@@ -24,5 +24,14 @@
 				Return all borrowed books by one member.
 			</action>
 		</release>
+		
+		<release version="2.3.0" date="2013-03-19"
+			description="Release with much improved functionality">
+			<action dev="betaworblers" type="update">
+				- Version number is shown on main page
+				- Books have a description (in show/add books)
+				- A renter can see all borrowed books (title and ISBN) which sorted by return date 
+		</action>
+		</release>
 	</body>
 </document>
