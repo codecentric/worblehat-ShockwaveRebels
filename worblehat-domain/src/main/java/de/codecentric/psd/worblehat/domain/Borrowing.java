@@ -1,6 +1,7 @@
 package de.codecentric.psd.worblehat.domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -38,9 +39,12 @@ public class Borrowing implements Serializable {
 		return borrowDate;
 	}
 
-	public Date getReturnDate() {
+	public String getReturnDate() {
 		int daysToReturn = 14;
-		return new Date(borrowDate.getTime() + daysToReturn * 24 * 3600 * 1000);
+		SimpleDateFormat sdf = new SimpleDateFormat();
+		sdf.applyPattern("yyyy-MM-dd");
+		return sdf.format(new Date(borrowDate.getTime() + daysToReturn * 24
+				* 3600 * 1000));
 	}
 
 	Borrowing(String borrowerEmailAddress, Date borrowDate) {
