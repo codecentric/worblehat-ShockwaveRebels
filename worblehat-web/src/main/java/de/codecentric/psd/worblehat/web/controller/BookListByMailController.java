@@ -1,6 +1,5 @@
 package de.codecentric.psd.worblehat.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -35,17 +34,35 @@ public class BookListByMailController {
 		this.bookRepository = bookRepository;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String setupForm(ModelMap modelMap, String emailAddress) {
-		List<Book> tmp = bookRepository.findAllBooks();
-		List<Book> books = new ArrayList<Book>();
+	// @RequestMapping(method = RequestMethod.POST)
+	// public String processSubmit(HttpServletRequest request, ModelMap
+	// modelMap,
+	// @ModelAttribute("bookDataFormData") BookDataFormData cmd,
+	// BindingResult result) {
+	//
+	// modelMap.put("bookDataFormData", cmd);
+	// validateAddBook.validate(cmd, result);
+	//
+	// if (result.hasErrors()) {
+	// return "/insertBooks";
+	// } else {
+	//
+	// bookFactory.createBook(cmd.getTitle(), cmd.getAuthor(),
+	// cmd.getEdition(), cmd.getIsbn(),
+	// Integer.parseInt(cmd.getYear()), cmd.getDescription());
+	// LOG.debug("new book instance is created: " + cmd.getIsbn());
+	//
+	// List<Book> books = bookRepository.findAllBooks();
+	// modelMap.addAttribute("books", books);
+	//
+	// return "/bookList";
+	// }
+	// }
 
-		for (int i = 0; i < tmp.size(); i++) {
-			if (tmp.get(i).getCurrentBorrowing().getBorrowerEmailAddress()
-					.equals(emailAddress)) {
-				books.add(tmp.get(i));
-			}
-		}
+	@RequestMapping(method = RequestMethod.GET)
+	public String setupForm(ModelMap modelMap) {
+		String test = "user2@dings.com";
+		List<Book> books = bookRepository.findAllBorrowBooksByBorrower(test);
 
 		for (int i = 0; i < books.size(); i++) {
 			for (int j = 0; j < books.size(); j++) {
@@ -60,6 +77,6 @@ public class BookListByMailController {
 		}
 
 		modelMap.addAttribute("books", books);
-		return "bookList";
+		return "myBooks";
 	}
 }
