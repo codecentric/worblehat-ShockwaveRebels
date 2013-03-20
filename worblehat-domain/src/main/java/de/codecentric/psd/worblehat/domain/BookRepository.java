@@ -125,4 +125,24 @@ public class BookRepository {
 		return query.getResultList();
 	}
 
+	/**
+	 * Delete a book by Titel and ISBN and Edition.
+	 * 
+	 * @param titel
+	 *            a valid Title of a book entity
+	 * @param isbn
+	 *            a valid ISBN of a book entity
+	 * @param edition
+	 *            a valid Edition of a book entity
+	 */
+	public void deleteBookByTitelAndIsbnAndEdition(String title, String isbn,
+			String edition) {
+		Query query = em
+				.createNativeQuery(
+						"delete from Book where title =? and isbn =? and edition =?")
+				.setParameter(1, title).setParameter(2, isbn)
+				.setParameter(3, edition);
+		query.executeUpdate();
+	}
+
 }
