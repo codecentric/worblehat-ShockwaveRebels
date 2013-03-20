@@ -21,26 +21,43 @@
 		<release version="1.4.0" date="2011-04-06"
 			description="Release with much improved functionality">
 			<action dev="betaworblers" type="update">
-				Return all borrowed books by one member.
+				Return all borrowed books by
+				one member.
 			</action>
 		</release>
-		
+
 		<release version="2.3.0" date="2013-03-19"
 			description="Release with much improved functionality">
 			<action dev="Shockwave Rebels" type="update">
-				<fixes> Version number is shown on main page </fixes>
-				<fixes> Books have a description (in show/add books) </fixes>
-				<fixes> A renter can see all borrowed books (title and ISBN) which sorted by return date </fixes>  
-		</action>
+				Version number is shown on
+				main page
+			</action>
+			<action dev="Shockwave Rebels" type="update">
+				Books have a description
+				(in show/add books)
+			</action>
+			<action dev="Shockwave Rebels" type="update">
+				A renter can see all
+				borrowed books (title and ISBN) which sorted by return date
+			</action>
 		</release>
+
 		<release version="2.4.0" date="2013-03-19"
 			description="Release with much improved functionality">
+			<action dev="Shockwave Rebels" type="fix">
+				Line break in change log
+			</action>
+			<action dev="Shockwave Rebels" type="fix">
+				Size of input text field enlarged (add book)
+			</action>
+			<action dev="Shockwave Rebels" type="fix">
+				Changed date format
+				(YYYY-MM-TT, books by mail)
+			</action>
 			<action dev="Shockwave Rebels" type="update">
-				<fixes> Linefeed in change log </fixes>
-				<fixes> Size of input text field enlarged (add book) </fixes> 
-				<fixes> Changed date format (YYYY-MM-TT, books by mail) </fixes> 
-				<fixes> Unique pair of books ISBN and title </fixes>
-		</action>
+				Unique pair of books ISBN
+				and title
+			</action>
 		</release>
 	</body>
 </document>
