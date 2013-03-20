@@ -20,7 +20,7 @@ import de.codecentric.psd.worblehat.web.validator.ValidateReturnOneBook;
  * 
  */
 @Controller
-@RequestMapping("/oneBook")
+@RequestMapping("/returnOneBook")
 public class ReturnOneBookController {
 
 	ValidateReturnOneBook validateReturnOneBook = new ValidateReturnOneBook();
