@@ -48,16 +48,25 @@
 				Line break in change log
 			</action>
 			<action dev="Shockwave Rebels" type="fix">
-				Size of input text field enlarged (add book)
+				Size of input text field
+				enlarged (add book)
 			</action>
 			<action dev="Shockwave Rebels" type="fix">
 				Changed date format
 				(YYYY-MM-TT, books by mail)
 			</action>
+		</release>
+
+
+		<release version="2.5.0" date="2013-03-20"
+			description="Release with much improved functionality">
 			<action dev="Shockwave Rebels" type="update">
-				Unique pair of books ISBN
-				and title
+				In adding book all obvious whitespace characters will be removed for each input expecting a string. For the ISBN number dashes are also removed.
+			</action>
+			<action dev="Shockwave Rebels" type="update">
+				Unique pair of books ISBN and title
 			</action>
 		</release>
+
 	</body>
 </document>

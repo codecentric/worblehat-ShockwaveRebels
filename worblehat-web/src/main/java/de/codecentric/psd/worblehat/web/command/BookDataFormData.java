@@ -13,12 +13,31 @@ public class BookDataFormData {
 	private String author;
 	private String description;
 
+	private String trimStringOrNull(String s) {
+		if (s == null) {
+			return s;
+		} else {
+
+			return s.trim();
+		}
+	}
+
+	private String removeWhitespaceCharacters(String s) {
+
+		if (s != null) {
+			return s.replaceAll("\\n", " ").replaceAll("\\s.\\s", " ").trim();
+		} else {
+			return s;
+		}
+
+	}
+
 	public String getYear() {
 		return year;
 	}
 
 	public void setYear(String year) {
-		this.year = year;
+		this.year = removeWhitespaceCharacters(year);
 	}
 
 	public String getIsbn() {
@@ -34,7 +53,8 @@ public class BookDataFormData {
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.description = removeWhitespaceCharacters(description);
+
 	}
 
 	public String getAuthor() {
@@ -42,7 +62,7 @@ public class BookDataFormData {
 	}
 
 	public void setAuthor(String author) {
-		this.author = author;
+		this.author = removeWhitespaceCharacters(author);
 	}
 
 	public String getTitle() {
@@ -50,7 +70,7 @@ public class BookDataFormData {
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
+		this.title = removeWhitespaceCharacters(title);
 	}
 
 	public String getEdition() {
@@ -58,7 +78,7 @@ public class BookDataFormData {
 	}
 
 	public void setEdition(String edition) {
-		this.edition = edition;
+		this.edition = removeWhitespaceCharacters(edition);
 	}
 
 	@Override
