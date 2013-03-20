@@ -39,17 +39,17 @@ public class ReturnOneBookController {
 			@ModelAttribute("returnOneBookFormData") ReturnOneBookFormData formData,
 			BindingResult result) {
 		boolean isISBN = validateReturnOneBook
-				.checkIfArgumentIsIsbnOrTitle(formData.getISBN_TITLE());
+				.checkIfArgumentIsIsbnOrTitle(formData.getIsbn_title());
 		validateReturnOneBook.validate(formData, result);
 		if (result.hasErrors()) {
 			return "/returnOneBook";
 		} else {
 			if (isISBN) {
 				bookService.returnOneBookByBorrowerAndIsbn(
-						formData.getISBN_TITLE(), formData.getEmailAddress());
+						formData.getIsbn_title(), formData.getEmail());
 			} else {
 				bookService.returnOneBookByBorrowerAndTitle(
-						formData.getISBN_TITLE(), formData.getEmailAddress());
+						formData.getIsbn_title(), formData.getEmail());
 			}
 			return "/home";
 		}

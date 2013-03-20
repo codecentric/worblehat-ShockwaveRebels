@@ -49,7 +49,7 @@ public class ValidateReturnOneBookTest {
 	@Test
 	public void shouldFailOnEmptyEmail() {
 		Errors errors = new BindException(cmd, "returnOneBookFormData");
-		cmd.setEmailAddress(" ");
+		cmd.setEmail(" ");
 		validateReturnOneBook.validate(cmd, errors);
 		// Assert.assertEquals(1, errors.getErrorCount());
 		// String code = errors.getFieldError("emailAddress").getCode();
@@ -59,7 +59,7 @@ public class ValidateReturnOneBookTest {
 	@Test
 	public void shouldFailOnInvalidEmail() {
 		Errors errors = new BindException(cmd, "returnOneBookFormData");
-		cmd.setEmailAddress("aa.de");
+		cmd.setEmail("aa.de");
 		validateReturnOneBook.validate(cmd, errors);
 		// Assert.assertEquals(1, errors.getErrorCount());
 		// String code = errors.getFieldError("emailAddress").getCode();

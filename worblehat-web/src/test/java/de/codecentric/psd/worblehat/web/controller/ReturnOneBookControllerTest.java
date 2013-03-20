@@ -50,7 +50,7 @@ public class ReturnOneBookControllerTest {
 	public void shouldReturnOneBookByIsbn() {
 		when(mockBindingResult.hasErrors()).thenReturn(false);
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
-		formData.setEmailAddress("email@email.de");
+		formData.setEmail("email@email.de");
 		formData.setISBNNumber("1234567962");
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
@@ -64,7 +64,7 @@ public class ReturnOneBookControllerTest {
 	public void shouldReturnOneBookByTitle() {
 		when(mockBindingResult.hasErrors()).thenReturn(false);
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
-		formData.setEmailAddress("email@email.de");
+		formData.setEmail("email@email.de");
 		formData.setISBNNumber("title");
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
