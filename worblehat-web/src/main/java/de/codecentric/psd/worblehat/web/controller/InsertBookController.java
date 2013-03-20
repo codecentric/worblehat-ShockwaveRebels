@@ -57,19 +57,20 @@ public class InsertBookController {
 			BindingResult result) {
 
 		modelMap.put("bookDataFormData", cmd);
-		validateAddBook.validate(cmd, result);
+		List<Book> books = bookRepository.findBooksByISBN(cmd.getIsbn());
+
+		validateAddBook.validate(cmd, result, books);
 
 		if (result.hasErrors()) {
 			return "/insertBooks";
 		} else {
-
 			bookFactory.createBook(cmd.getTitle(), cmd.getAuthor(),
 					cmd.getEdition(), cmd.getIsbn(),
 					Integer.parseInt(cmd.getYear()), cmd.getDescription());
 			LOG.debug("new book instance is created: " + cmd.getIsbn());
 
-			List<Book> books = bookRepository.findAllBooks();
-			modelMap.addAttribute("books", books);
+			List<Book> booksToFill = bookRepository.findAllBooks();
+			modelMap.addAttribute("books", booksToFill);
 
 			return "/bookList";
 		}
