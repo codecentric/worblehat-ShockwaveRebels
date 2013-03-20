@@ -19,28 +19,28 @@ public class ReturnOneBookFormData {
 	 * @param emailAddress
 	 *            the user email address
 	 */
-	public ReturnOneBookFormData(String isbn, String emailAddress) {
-		this.isbn = isbn;
-		this.emailAddress = emailAddress;
+	public ReturnOneBookFormData(String email, String isbn_title) {
+		this.email = email;
+		this.isbn_title = isbn_title;
 	}
 
-	private String emailAddress;
-	private String isbn;
+	private String email;
+	private String isbn_title;
 
-	public String getISBNNumber() {
-		return isbn;
+	public String getIsbn_title() {
+		return isbn_title;
 	}
 
-	public void setISBNNumber(String isbn) {
-		this.isbn = isbn;
+	public void setIsbn_title(String isbn_title) {
+		this.isbn_title = isbn_title;
 	}
 
-	public String getEmailAddress() {
-		return emailAddress;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public void setEmail(String emailAddress) {
+		this.email = emailAddress;
 	}
 
 }

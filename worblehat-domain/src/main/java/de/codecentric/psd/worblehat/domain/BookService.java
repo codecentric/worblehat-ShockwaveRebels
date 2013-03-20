@@ -8,8 +8,10 @@ package de.codecentric.psd.worblehat.domain;
  */
 public interface BookService {
 
-	void returnAllBooksByBorrower(String string);
+	void returnAllBooksByBorrower(String mail);
 
-	void returnOneBookByBorrower(String isbn, String string);
+	void returnOneBookByBorrowerAndIsbn(String isbn, String mail);
+
+	void returnOneBookByBorrowerAndTitle(String title, String mail);
 
 }

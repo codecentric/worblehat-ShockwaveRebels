@@ -10,13 +10,13 @@
 	<h1>Return One book</h1>
 
 	<form:form commandName="returnOneBookFormData" method="POST">
-            ISBN:<form:input id="isbn" path="isbn" />
-		<form:errors path="isbn" />
+            ISBN/Title:<form:input id="isbn_title" path="isbn_title" />
+		<form:errors path="isbn_title" />
 		<br />
             Email:<form:input id="email" path="email" />
 		<form:errors path="email" />
 		<br />
-		<input type="submit" id="returnBook" value="Return Book" />
+		<input type="submit" id="returnOneBook" value="Return Book" />
 		<hr />
 		<a href="<spring:url value="/" htmlEscape="true" />">Back to Home</a>
 	</form:form>

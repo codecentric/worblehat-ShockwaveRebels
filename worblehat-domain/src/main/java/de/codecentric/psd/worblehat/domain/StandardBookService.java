@@ -28,9 +28,9 @@ public class StandardBookService implements BookService {
 	}
 
 	@Override
-	public void returnAllBooksByBorrower(String string) {
+	public void returnAllBooksByBorrower(String mail) {
 		List<Book> borrowBooks = bookRepository
-				.findAllBorrowBooksByBorrower(string);
+				.findAllBorrowBooksByBorrower(mail);
 		for (Book book : borrowBooks) {
 			book.returnBook();
 
@@ -38,12 +38,26 @@ public class StandardBookService implements BookService {
 	}
 
 	@Override
-	public void returnOneBookByBorrower(String isbn, String string) {
+	public void returnOneBookByBorrowerAndIsbn(String isbn, String mail) {
 		List<Book> borrowBooks = bookRepository
-				.findAllBorrowBooksByBorrower(string);
+				.findAllBorrowBooksByBorrower(mail);
 		for (Book book : borrowBooks) {
-			if (book.getIsbn().equals(isbn))
+			if (book.getIsbn().equals(isbn)) {
 				book.returnBook();
+			}
+
+		}
+
+	}
+
+	@Override
+	public void returnOneBookByBorrowerAndTitle(String title, String mail) {
+		List<Book> borrowBooks = bookRepository
+				.findAllBorrowBooksByBorrower(mail);
+		for (Book book : borrowBooks) {
+			if (book.getTitle().equals(title)) {
+				book.returnBook();
+			}
 
 		}
 

@@ -20,7 +20,7 @@ import de.codecentric.psd.worblehat.web.validator.ValidateReturnOneBook;
  * 
  */
 @Controller
-@RequestMapping("/oneBook")
+@RequestMapping("/returnOneBook")
 public class ReturnOneBookController {
 
 	ValidateReturnOneBook validateReturnOneBook = new ValidateReturnOneBook();
@@ -34,16 +34,25 @@ public class ReturnOneBookController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String returnOneBook(
-			ModelMap modelMap,
-			@ModelAttribute("returnOneBookFormData") ReturnOneBookFormData formData,
+	public String returnOneBook(ModelMap modelMap,
+			@ModelAttribute("returnOneBookFormData") ReturnOneBookFormData cmd,
 			BindingResult result) {
-		validateReturnOneBook.validate(formData, result);
+
+		// modelMap.put("returnOneBookFormData", cmd);
+		boolean isISBN = validateReturnOneBook.checkIfArgumentIsIsbnOrTitle(cmd
+				.getIsbn_title());
+
+		validateReturnOneBook.validate(cmd, result);
 		if (result.hasErrors()) {
 			return "/returnOneBook";
 		} else {
-			bookService.returnOneBookByBorrower(formData.getISBNNumber(),
-					formData.getEmailAddress());
+			if (isISBN) {
+				bookService.returnOneBookByBorrowerAndIsbn(cmd.getIsbn_title(),
+						cmd.getEmail());
+			} else {
+				bookService.returnOneBookByBorrowerAndTitle(
+						cmd.getIsbn_title(), cmd.getEmail());
+			}
 			return "/home";
 		}
 	}
