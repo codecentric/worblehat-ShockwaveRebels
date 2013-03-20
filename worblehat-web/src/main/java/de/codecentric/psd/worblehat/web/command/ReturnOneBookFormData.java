@@ -19,20 +19,20 @@ public class ReturnOneBookFormData {
 	 * @param emailAddress
 	 *            the user email address
 	 */
-	public ReturnOneBookFormData(String isbn, String emailAddress) {
-		this.isbn = isbn;
+	public ReturnOneBookFormData(String emailAddress, String isbn_title) {
 		this.emailAddress = emailAddress;
+		this.isbn_title = isbn_title;
 	}
 
 	private String emailAddress;
-	private String isbn;
+	private String isbn_title;
 
-	public String getISBNNumber() {
-		return isbn;
+	public String getISBN_TITLE() {
+		return isbn_title;
 	}
 
-	public void setISBNNumber(String isbn) {
-		this.isbn = isbn;
+	public void setISBN_TITLE(String isbn_title) {
+		this.isbn_title = isbn_title;
 	}
 
 	public String getEmailAddress() {
