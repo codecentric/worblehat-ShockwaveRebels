@@ -258,9 +258,9 @@ public class ValidateAddBookTest {
 		String isbn = "1234567962";
 		List<Book> books = new ArrayList<Book>();
 		Errors errors = mock(BindingResult.class);
-		books.add(new Book(cmd.getTitle(), cmd.getAuthor(), cmd.getEdition(),
-				isbn, 2000, "description"));
+		books.add(new Book("newTitle", cmd.getAuthor(), cmd.getEdition(), cmd
+				.getIsbn(), 2000, "description"));
 		validateAddBook.validate((BookDataFormData) cmd, errors, books);
-		// Assert.assertEquals(1, errors.getErrorCount());
+		Assert.assertEquals(0, errors.getErrorCount());
 	}
 }
