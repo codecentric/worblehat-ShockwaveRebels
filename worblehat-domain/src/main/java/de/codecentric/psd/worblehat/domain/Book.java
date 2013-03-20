@@ -46,6 +46,25 @@ public class Book implements Serializable {
 		super();
 	}
 
+	private String removeNondigits(String s) {
+		if (s == null) {
+			return s;
+		} else {
+
+			return s.replaceAll("-", "").replaceAll("\\s", "");
+		}
+	}
+
+	private String removeWhitespaceCharacters(String s) {
+
+		if (s != null) {
+			return s.replaceAll("\\n", " ").replaceAll("\\s.\\s", " ").trim();
+		} else {
+			return s;
+		}
+
+	}
+
 	/**
 	 * Creates a new book instance.
 	 * 
@@ -65,12 +84,12 @@ public class Book implements Serializable {
 	public Book(String title, String author, String edition, String isbn,
 			int year, String description) {
 		super();
-		this.title = title;
-		this.author = author;
-		this.edition = edition;
-		this.isbn = isbn;
+		this.title = removeWhitespaceCharacters(title);
+		this.author = removeWhitespaceCharacters(author);
+		this.edition = removeWhitespaceCharacters(edition);
+		this.isbn = removeNondigits(isbn);
 		this.year = year;
-		this.description = description;
+		this.description = removeWhitespaceCharacters(description);
 	}
 
 	public long getId() {
