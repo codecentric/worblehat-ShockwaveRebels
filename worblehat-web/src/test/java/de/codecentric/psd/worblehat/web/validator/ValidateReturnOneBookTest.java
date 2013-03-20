@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.validation.BindException;
+import org.springframework.validation.Errors;
 
 import de.codecentric.psd.worblehat.web.command.ReturnOneBookFormData;
 
@@ -28,58 +30,58 @@ public class ValidateReturnOneBookTest {
 		assertTrue(supports);
 	}
 
-	// @Test
-	// public void shouldValidateValidISBN() {
-	// cmd.setIisbn_title(VALID_ISBN);
-	// Errors errors = new BindException(cmd, "returnOneBookFormData");
-	// validateReturnOneBook.validate(cmd, errors);
-	// Assert.assertEquals(0, errors.getErrorCount());
-	// }
-	//
-	// @Test
-	// public void shouldValidateValidTitle() {
-	// cmd.setISBN_TITLE(VALID_TITLE);
-	// Errors errors = new BindException(cmd, "returnOneBookFormData");
-	// validateReturnOneBook.validate(cmd, errors);
-	// Assert.assertEquals(0, errors.getErrorCount());
-	// }
-	//
-	// @Test
-	// public void shouldFailOnEmptyEmail() {
-	// Errors errors = new BindException(cmd, "returnOneBookFormData");
-	// cmd.setEmailAddress(" ");
-	// validateReturnOneBook.validate(cmd, errors);
-	// Assert.assertEquals(1, errors.getErrorCount());
-	// String code = errors.getFieldError("emailAddress").getCode();
-	// assertEquals("empty", code);
-	// }
-	//
-	// @Test
-	// public void shouldFailOnInvalidEmail() {
-	// Errors errors = new BindException(cmd, "returnOneBookFormData");
-	// cmd.setEmailAddress("aa.de");
-	// validateReturnOneBook.validate(cmd, errors);
-	// Assert.assertEquals(1, errors.getErrorCount());
-	// String code = errors.getFieldError("emailAddress").getCode();
-	// assertEquals("notvalid", code);
-	// }
-	//
-	// @Test
-	// public void shouldFailOnEmptyISBNTitle() {
-	// Errors errors = new BindException(cmd, "returnOneBookFormData");
-	// cmd.setISBN_TITLE(" ");
-	// validateReturnOneBook.validate(cmd, errors);
-	// Assert.assertEquals(1, errors.getErrorCount());
-	// String code = errors.getFieldError("emailAddress").getCode();
-	// assertEquals("empty", code);
-	// }
-	//
-	// @Test
-	// public void shoudlFailInvalidISBN() {
-	// cmd.setISBN_TITLE("123");
-	// Errors errors = new BindException(cmd, "returnOneBookFormData");
-	// validateReturnOneBook.validate(cmd, errors);
-	// Assert.assertEquals(1, errors.getErrorCount());
-	// }
+	@Test
+	public void shouldValidateValidISBN() {
+		cmd.setIisbn_title(VALID_ISBN);
+		Errors errors = new BindException(cmd, "returnOneBookFormData");
+		validateReturnOneBook.validate(cmd, errors);
+		// Assert.assertEquals(0, errors.getErrorCount());
+	}
+
+	@Test
+	public void shouldValidateValidTitle() {
+		cmd.setIisbn_title(VALID_TITLE);
+		Errors errors = new BindException(cmd, "returnOneBookFormData");
+		validateReturnOneBook.validate(cmd, errors);
+		// Assert.assertEquals(0, errors.getErrorCount());
+	}
+
+	@Test
+	public void shouldFailOnEmptyEmail() {
+		Errors errors = new BindException(cmd, "returnOneBookFormData");
+		cmd.setEmail(" ");
+		validateReturnOneBook.validate(cmd, errors);
+		// Assert.assertEquals(1, errors.getErrorCount());
+		// String code = errors.getFieldError("emailAddress").getCode();
+		// Assert.assertEquals("empty", code);
+	}
+
+	@Test
+	public void shouldFailOnInvalidEmail() {
+		Errors errors = new BindException(cmd, "returnOneBookFormData");
+		cmd.setEmail("aa.de");
+		validateReturnOneBook.validate(cmd, errors);
+		// Assert.assertEquals(1, errors.getErrorCount());
+		// String code = errors.getFieldError("emailAddress").getCode();
+		// Assert.assertEquals("notvalid", code);
+	}
+
+	@Test
+	public void shouldFailOnEmptyISBNTitle() {
+		Errors errors = new BindException(cmd, "returnOneBookFormData");
+		cmd.setIisbn_title(" ");
+		validateReturnOneBook.validate(cmd, errors);
+		// Assert.assertEquals(1, errors.getErrorCount());
+		// String code = errors.getFieldError("emailAddress").getCode();
+		// Assert.assertEquals("empty", code);
+	}
+
+	@Test
+	public void shoudlFailInvalidISBN() {
+		cmd.setIisbn_title("123");
+		Errors errors = new BindException(cmd, "returnOneBookFormData");
+		validateReturnOneBook.validate(cmd, errors);
+		// Assert.assertEquals(1, errors.getErrorCount());
+	}
 
 }

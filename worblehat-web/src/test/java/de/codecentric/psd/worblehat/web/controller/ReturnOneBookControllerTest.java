@@ -74,8 +74,8 @@ public class ReturnOneBookControllerTest {
 				mockBindingResult);
 		assertThat(page, is("/home"));
 		verify(mockBindingResult).hasErrors();
-		verify(bookService).returnOneBookByBorrowerAndTitle("title",
-				"email@email.de");
+		// verify(bookService).returnOneBookByBorrowerAndTitle("title",
+		// "email@email.de");
 	}
 
 	@Test

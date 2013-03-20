@@ -44,7 +44,8 @@ public class ValidateReturnOneBook implements Validator {
 	}
 
 	public boolean checkIfArgumentIsIsbnOrTitle(String isbn_title) {
-		return isbn_title.matches("[0-9]");
+		return true;
+		// return isbn_title.matches("[0-9]");
 	}
 
 	private void checkThatUserEmailAddressIsFilledAndValid(Errors errors,
@@ -59,22 +60,24 @@ public class ValidateReturnOneBook implements Validator {
 
 	private void checkThatIsbnIsFilledAndValid(Errors errors,
 			ReturnOneBookFormData cmd) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "isbn", "empty");
-		if (!errors.hasFieldErrors("isbn")) {
+		ValidationUtils
+				.rejectIfEmptyOrWhitespace(errors, "isbn_title", "empty");
+		if (!errors.hasFieldErrors("isbn_title")) {
 			ISBNValidator isbnValidator = new ISBNValidator();
 			if (!isbnValidator.isValid(cmd.getIsbn_title())) {
-				errors.rejectValue("isbn", "notvalid");
+				errors.rejectValue("isbn_title", "notvalid");
 			}
 		}
 	}
 
 	private void checkThatTitleIsFilledAndValid(Errors errors,
 			ReturnOneBookFormData cmd) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "isbn", "empty");
-		if (!errors.hasFieldErrors("isbn")) {
+		ValidationUtils
+				.rejectIfEmptyOrWhitespace(errors, "isbn_title", "empty");
+		if (!errors.hasFieldErrors("isbn_title")) {
 			ISBNValidator isbnValidator = new ISBNValidator();
 			if (!isbnValidator.isValid(cmd.getIsbn_title())) {
-				errors.rejectValue("title", "notvalid");
+				errors.rejectValue("isbn_title", "notvalid");
 			}
 		}
 	}
