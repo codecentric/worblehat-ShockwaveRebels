@@ -19,8 +19,8 @@ public class ReturnOneBookFormData {
 	 * @param emailAddress
 	 *            the user email address
 	 */
-	public ReturnOneBookFormData(String emailAddress, String isbn_title) {
-		this.email = emailAddress;
+	public ReturnOneBookFormData(String email, String isbn_title) {
+		this.email = email;
 		this.isbn_title = isbn_title;
 	}
 
@@ -31,7 +31,7 @@ public class ReturnOneBookFormData {
 		return isbn_title;
 	}
 
-	public void setIisbn_title(String isbn_title) {
+	public void setIsbn_title(String isbn_title) {
 		this.isbn_title = isbn_title;
 	}
 

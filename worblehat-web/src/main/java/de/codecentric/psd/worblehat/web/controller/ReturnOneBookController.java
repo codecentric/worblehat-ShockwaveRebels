@@ -34,22 +34,24 @@ public class ReturnOneBookController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String returnOneBook(
-			ModelMap modelMap,
-			@ModelAttribute("returnOneBookFormData") ReturnOneBookFormData formData,
+	public String returnOneBook(ModelMap modelMap,
+			@ModelAttribute("returnOneBookFormData") ReturnOneBookFormData cmd,
 			BindingResult result) {
-		boolean isISBN = validateReturnOneBook
-				.checkIfArgumentIsIsbnOrTitle(formData.getIsbn_title());
-		validateReturnOneBook.validate(formData, result);
+
+		// modelMap.put("returnOneBookFormData", cmd);
+		boolean isISBN = validateReturnOneBook.checkIfArgumentIsIsbnOrTitle(cmd
+				.getIsbn_title());
+
+		validateReturnOneBook.validate(cmd, result);
 		if (result.hasErrors()) {
 			return "/returnOneBook";
 		} else {
 			if (isISBN) {
-				bookService.returnOneBookByBorrowerAndIsbn(
-						formData.getIsbn_title(), formData.getEmail());
+				bookService.returnOneBookByBorrowerAndIsbn(cmd.getIsbn_title(),
+						cmd.getEmail());
 			} else {
 				bookService.returnOneBookByBorrowerAndTitle(
-						formData.getIsbn_title(), formData.getEmail());
+						cmd.getIsbn_title(), cmd.getEmail());
 			}
 			return "/home";
 		}

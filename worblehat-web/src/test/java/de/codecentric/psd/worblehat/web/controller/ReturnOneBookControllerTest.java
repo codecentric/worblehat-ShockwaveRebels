@@ -52,7 +52,7 @@ public class ReturnOneBookControllerTest {
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
 
 		formData.setEmail("email@email.de");
-		formData.setIisbn_title("1234567962");
+		formData.setIsbn_title("1234567962");
 
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
@@ -68,7 +68,7 @@ public class ReturnOneBookControllerTest {
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
 
 		formData.setEmail("email@email.de");
-		formData.setIisbn_title("title");
+		formData.setIsbn_title("title");
 
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
@@ -83,7 +83,7 @@ public class ReturnOneBookControllerTest {
 		when(mockBindingResult.hasErrors()).thenReturn(true);
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
 		formData.setEmail("email@email.de");
-		formData.setIisbn_title("1234567962");
+		formData.setIsbn_title("1234567962");
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
 		assertThat(page, is("/returnOneBook"));

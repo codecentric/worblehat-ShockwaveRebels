@@ -32,7 +32,7 @@ public class ValidateReturnOneBookTest {
 
 	@Test
 	public void shouldValidateValidISBN() {
-		cmd.setIisbn_title(VALID_ISBN);
+		cmd.setIsbn_title(VALID_ISBN);
 		Errors errors = new BindException(cmd, "returnOneBookFormData");
 		validateReturnOneBook.validate(cmd, errors);
 		// Assert.assertEquals(0, errors.getErrorCount());
@@ -40,7 +40,7 @@ public class ValidateReturnOneBookTest {
 
 	@Test
 	public void shouldValidateValidTitle() {
-		cmd.setIisbn_title(VALID_TITLE);
+		cmd.setIsbn_title(VALID_TITLE);
 		Errors errors = new BindException(cmd, "returnOneBookFormData");
 		validateReturnOneBook.validate(cmd, errors);
 		// Assert.assertEquals(0, errors.getErrorCount());
@@ -69,7 +69,7 @@ public class ValidateReturnOneBookTest {
 	@Test
 	public void shouldFailOnEmptyISBNTitle() {
 		Errors errors = new BindException(cmd, "returnOneBookFormData");
-		cmd.setIisbn_title(" ");
+		cmd.setIsbn_title(" ");
 		validateReturnOneBook.validate(cmd, errors);
 		// Assert.assertEquals(1, errors.getErrorCount());
 		// String code = errors.getFieldError("emailAddress").getCode();
@@ -78,7 +78,7 @@ public class ValidateReturnOneBookTest {
 
 	@Test
 	public void shoudlFailInvalidISBN() {
-		cmd.setIisbn_title("123");
+		cmd.setIsbn_title("123");
 		Errors errors = new BindException(cmd, "returnOneBookFormData");
 		validateReturnOneBook.validate(cmd, errors);
 		// Assert.assertEquals(1, errors.getErrorCount());

@@ -16,7 +16,7 @@
             Email:<form:input id="email" path="email" />
 		<form:errors path="email" />
 		<br />
-		<input type="submit" id="returnBook" value="Return Book" />
+		<input type="submit" id="returnOneBook" value="Return Book" />
 		<hr />
 		<a href="<spring:url value="/" htmlEscape="true" />">Back to Home</a>
 	</form:form>

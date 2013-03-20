@@ -44,8 +44,7 @@ public class ValidateReturnOneBook implements Validator {
 	}
 
 	public boolean checkIfArgumentIsIsbnOrTitle(String isbn_title) {
-		return true;
-		// return isbn_title.matches("[0-9]");
+		return isbn_title.matches("[0-9]+");
 	}
 
 	private void checkThatUserEmailAddressIsFilledAndValid(Errors errors,
@@ -75,8 +74,7 @@ public class ValidateReturnOneBook implements Validator {
 		ValidationUtils
 				.rejectIfEmptyOrWhitespace(errors, "isbn_title", "empty");
 		if (!errors.hasFieldErrors("isbn_title")) {
-			ISBNValidator isbnValidator = new ISBNValidator();
-			if (!isbnValidator.isValid(cmd.getIsbn_title())) {
+			if (cmd.getIsbn_title().isEmpty()) {
 				errors.rejectValue("isbn_title", "notvalid");
 			}
 		}
