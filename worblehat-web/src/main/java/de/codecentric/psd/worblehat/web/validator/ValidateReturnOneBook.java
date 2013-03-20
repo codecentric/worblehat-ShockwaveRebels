@@ -32,7 +32,7 @@ public class ValidateReturnOneBook implements Validator {
 		}
 
 		ReturnOneBookFormData cmd = (ReturnOneBookFormData) target;
-		boolean isISBN = checkIfArgumentIsIsbnOrTitle(cmd.getISBN_TITLE());
+		boolean isISBN = checkIfArgumentIsIsbnOrTitle(cmd.getIsbn_title());
 
 		if (isISBN) {
 			checkThatIsbnIsFilledAndValid(errors, cmd);
@@ -51,7 +51,7 @@ public class ValidateReturnOneBook implements Validator {
 			ReturnOneBookFormData cmd) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "empty");
 		if (!errors.hasFieldErrors("email")) {
-			if (!EmailValidator.getInstance().isValid(cmd.getEmailAddress())) {
+			if (!EmailValidator.getInstance().isValid(cmd.getEmail())) {
 				errors.rejectValue("email", "notvalid");
 			}
 		}
@@ -62,7 +62,7 @@ public class ValidateReturnOneBook implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "isbn", "empty");
 		if (!errors.hasFieldErrors("isbn")) {
 			ISBNValidator isbnValidator = new ISBNValidator();
-			if (!isbnValidator.isValid(cmd.getISBN_TITLE())) {
+			if (!isbnValidator.isValid(cmd.getIsbn_title())) {
 				errors.rejectValue("isbn", "notvalid");
 			}
 		}
@@ -73,7 +73,7 @@ public class ValidateReturnOneBook implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "isbn", "empty");
 		if (!errors.hasFieldErrors("isbn")) {
 			ISBNValidator isbnValidator = new ISBNValidator();
-			if (!isbnValidator.isValid(cmd.getISBN_TITLE())) {
+			if (!isbnValidator.isValid(cmd.getIsbn_title())) {
 				errors.rejectValue("title", "notvalid");
 			}
 		}

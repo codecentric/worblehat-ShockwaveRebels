@@ -30,7 +30,7 @@ public class ValidateReturnOneBookTest {
 
 	// @Test
 	// public void shouldValidateValidISBN() {
-	// cmd.setISBN_TITLE(VALID_ISBN);
+	// cmd.setIisbn_title(VALID_ISBN);
 	// Errors errors = new BindException(cmd, "returnOneBookFormData");
 	// validateReturnOneBook.validate(cmd, errors);
 	// Assert.assertEquals(0, errors.getErrorCount());

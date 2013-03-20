@@ -10,8 +10,8 @@
 	<h1>Return One book</h1>
 
 	<form:form commandName="returnOneBookFormData" method="POST">
-            ISBN:<form:input id="isbn" path="isbn" />
-		<form:errors path="isbn" />
+            ISBN/Title:<form:input id="isbn_title" path="isbn_title" />
+		<form:errors path="isbn_title" />
 		<br />
             Email:<form:input id="email" path="email" />
 		<form:errors path="email" />

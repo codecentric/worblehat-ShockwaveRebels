@@ -50,8 +50,10 @@ public class ReturnOneBookControllerTest {
 	public void shouldReturnOneBookByIsbn() {
 		when(mockBindingResult.hasErrors()).thenReturn(false);
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
-		formData.setEmailAddress("email@email.de");
-		formData.setISBN_TITLE("1234567962");
+
+		formData.setEmail("email@email.de");
+		formData.setIisbn_title("1234567962");
+
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
 		assertThat(page, is("/home"));
@@ -64,8 +66,10 @@ public class ReturnOneBookControllerTest {
 	public void shouldReturnOneBookByTitle() {
 		when(mockBindingResult.hasErrors()).thenReturn(false);
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
-		formData.setEmailAddress("email@email.de");
-		formData.setISBN_TITLE("title");
+
+		formData.setEmail("email@email.de");
+		formData.setIisbn_title("title");
+
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
 		assertThat(page, is("/home"));
@@ -78,8 +82,8 @@ public class ReturnOneBookControllerTest {
 	public void shouldNotReturnBook() {
 		when(mockBindingResult.hasErrors()).thenReturn(true);
 		ReturnOneBookFormData formData = new ReturnOneBookFormData();
-		formData.setEmailAddress("email@email.de");
-		formData.setISBN_TITLE("1234567962");
+		formData.setEmail("email@email.de");
+		formData.setIisbn_title("1234567962");
 		String page = returnOneBookController.returnOneBook(modelMap, formData,
 				mockBindingResult);
 		assertThat(page, is("/returnOneBook"));
