@@ -14,8 +14,7 @@ Then the library contains only the book with <isbn>
 
 Examples:
  
-| isbn           |
-| 978-3570585016 |
-| 0-9752298-0-X  |
+| isbn        |
+| 097522980X  |
 
 
