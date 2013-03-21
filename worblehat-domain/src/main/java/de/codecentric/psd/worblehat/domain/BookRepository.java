@@ -135,14 +135,26 @@ public class BookRepository {
 	 * @param edition
 	 *            a valid Edition of a book entity
 	 */
+	@SuppressWarnings("unchecked")
 	public void deleteBookByTitelAndIsbnAndEdition(String title, String isbn,
 			String edition) {
-		Query query = em
-				.createNativeQuery(
-						"delete from Book where title =? and isbn =? and edition =?")
+		Query queryGet = em
+				.createQuery(
+						"from Book where title =? and isbn =? and edition =?")
 				.setParameter(1, title).setParameter(2, isbn)
 				.setParameter(3, edition);
-		query.executeUpdate();
+		List<Book> books = queryGet.getResultList();
+
+		for (Book book : books) {
+			if (book.getCurrentBorrowing() == null) {
+				Query query = em.createNativeQuery(
+						"delete from Book where id =?").setParameter(1,
+						book.getId());
+				query.executeUpdate();
+				break;
+			}
+
+		}
 	}
 
 }
