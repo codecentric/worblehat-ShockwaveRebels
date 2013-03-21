@@ -46,21 +46,30 @@ public class Book implements Serializable {
 		super();
 	}
 
-	private String removeNondigits(String s) {
-		if (s == null) {
-			return s;
+	/**
+	 * @param digitsToRemove
+	 *            String to remove all character which aren't a number
+	 */
+	private String removeNondigits(String digitsToRemove) {
+		if (digitsToRemove == null) {
+			return digitsToRemove;
 		} else {
 
-			return s.replaceAll("-", "").replaceAll("\\s", "");
+			return digitsToRemove.replaceAll("-", "").replaceAll("\\s", "");
 		}
 	}
 
-	private String removeWhitespaceCharacters(String s) {
+	/**
+	 * @param stringToRemoveWhiteSpaces
+	 *            String to remove Whitespaces
+	 */
+	private String removeWhitespaceCharacters(String stringToRemoveWhiteSpaces) {
 
-		if (s != null) {
-			return s.replaceAll("\\n", " ").replaceAll("\\s.\\s", " ").trim();
+		if (stringToRemoveWhiteSpaces != null) {
+			return stringToRemoveWhiteSpaces.replaceAll("\\n", " ")
+					.replaceAll("\\s.\\s", " ").trim();
 		} else {
-			return s;
+			return stringToRemoveWhiteSpaces;
 		}
 
 	}
