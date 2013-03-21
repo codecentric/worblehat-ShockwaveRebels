@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 /**
  * Entity implementation class for Entity: Book
@@ -34,6 +35,9 @@ public class Book implements Serializable {
 	private String edition;
 	private String isbn;
 	private String description;
+	@Transient
+	private String shortDescription;
+
 	private int year;
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -90,6 +94,21 @@ public class Book implements Serializable {
 		this.isbn = removeNondigits(isbn);
 		this.year = year;
 		this.description = removeWhitespaceCharacters(description);
+		this.setShortDescription(this.description);
+	}
+
+	/**
+	 * Cut to long descriptions and appen 3 dots
+	 * 
+	 * @param description2cut
+	 */
+	private void setShortDescription(String description2cut) {
+		if (description2cut.length() > 100) {
+			this.shortDescription = description2cut.substring(0, 100) + "...";
+		} else {
+			this.shortDescription = description2cut;
+		}
+
 	}
 
 	public long getId() {
@@ -122,6 +141,10 @@ public class Book implements Serializable {
 
 	public Borrowing getCurrentBorrowing() {
 		return currentBorrowing;
+	}
+
+	public String getShortDescription() {
+		return shortDescription;
 	}
 
 	/**
