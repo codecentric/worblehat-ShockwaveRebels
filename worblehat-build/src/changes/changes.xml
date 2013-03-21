@@ -61,23 +61,40 @@
 		<release version="2.5.0" date="2013-03-20"
 			description="Release with much improved functionality">
 			<action dev="Shockwave Rebels" type="update">
-				In adding book all obvious whitespace characters will be removed for each input expecting a string. For the ISBN number dashes are also removed.
+				In adding book all obvious
+				whitespace characters will be removed for each input expecting a
+				string. For the ISBN number dashes are also removed.
 			</action>
 			<action dev="Shockwave Rebels" type="update">
-				Unique pair of books ISBN and title
+				Unique pair of books ISBN
+				and title
 			</action>
 		</release>
 
 		<release version="2.7.0" date="2013-03-21"
 			description="Release with much improved functionality">
 			<action dev="Shockwave Rebels" type="update">
-				Deleting a single book from library by title, ISBN and edition 
+				Deleting a single book
+				from library by title, ISBN and edition
 			</action>
 			<action dev="Shockwave Rebels" type="update">
-				ISBN numbers of length 13 will be supported
+				ISBN numbers of length 13
+				will be supported
 			</action>
 			<action dev="Shockwave Rebels" type="update">
-				Returning of a single book by mail and ISBN or title 
+				Returning of a single book
+				by mail and ISBN or title
+			</action>
+		</release>
+
+
+		<release version="2.8.0" date="2013-03-21"
+			description="Release with much improved functionality">
+			<action dev="Shockwave Rebels" type="update">
+				Descriptions longer than 100 characters will be cut and extended by 3 dots
+			</action>
+			<action dev="Shockwave Rebels" type="update">
+				ISBN on all book view always have same appereance
 			</action>
 		</release>
 
