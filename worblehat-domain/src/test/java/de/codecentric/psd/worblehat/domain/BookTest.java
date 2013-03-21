@@ -1,6 +1,10 @@
 package de.codecentric.psd.worblehat.domain;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -44,4 +48,59 @@ public class BookTest {
 		Assert.assertEquals(expectedISBN, book.getIsbn());
 	}
 
+	@Test
+	public void shouldGetId() {
+		Book book = new Book("Title", "author", "2", "1234", 2002,
+				"Super Werk!");
+		assertThat(book.getId(), not(nullValue()));
+	}
+
+	@Test
+	public void shouldGetTitle() {
+		Book book = new Book("Title", "author", "2", "1234", 2002,
+				"Super Werk!");
+		assertThat(book.getTitle(), is("Title"));
+	}
+
+	@Test
+	public void shouldGetAuthor() {
+		Book book = new Book("Title", "author", "2", "1234", 2002,
+				"Super Werk!");
+		assertThat(book.getAuthor(), is("author"));
+	}
+
+	@Test
+	public void shouldGetEdition() {
+		Book book = new Book("Title", "author", "2", "1234", 2002,
+				"Super Werk!");
+		assertThat(book.getEdition(), is("2"));
+	}
+
+	@Test
+	public void shouldGetYear() {
+		Book book = new Book("Title", "author", "2", "1234", 2002,
+				"Super Werk!");
+		assertThat(book.getYear(), is(2002));
+	}
+
+	@Test
+	public void shouldGetDescription() {
+		Book book = new Book("Title", "author", "2", "1234", 2002,
+				"Super Werk!");
+		assertThat(book.getDescription(), is("Super Werk!"));
+	}
+
+	@Test
+	public void shouldRemoveNondigits() {
+		Book book = new Book("Title", "author", "1", null, 2012, "Test");
+
+		assertThat(book.getIsbn(), is(nullValue()));
+	}
+
+	@Test
+	public void shouldRemoveWhitespaceCharacters() {
+		Book book = new Book(null, "author", "1", "1234", 2012, "Test");
+
+		assertThat(book.getTitle(), is(nullValue()));
+	}
 }
