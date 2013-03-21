@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 
 /**
  * Entity implementation class for Entity: Book
@@ -35,8 +34,8 @@ public class Book implements Serializable {
 	private String edition;
 	private String isbn;
 	private String description;
-	@Transient
-	private String shortDescription;
+	// @Transient
+	// private String shortDescription;
 
 	private int year;
 
@@ -103,22 +102,22 @@ public class Book implements Serializable {
 		this.isbn = removeNondigits(isbn);
 		this.year = year;
 		this.description = removeWhitespaceCharacters(description);
-		this.setShortDescription(this.description);
+		// this.setShortDescription(this.description);
 	}
 
-	/**
-	 * Cut to long descriptions and appen 3 dots
-	 * 
-	 * @param description2cut
-	 */
-	private void setShortDescription(String description2cut) {
-		if (description2cut.length() > 100) {
-			this.shortDescription = description2cut.substring(0, 100) + "...";
-		} else {
-			this.shortDescription = description2cut;
-		}
-
-	}
+	// /**
+	// * Cut to long descriptions and appen 3 dots
+	// *
+	// * @param description2cut
+	// */
+	// private void setShortDescription(String description2cut) {
+	// if (description2cut.length() > 100) {
+	// this.shortDescription = description2cut.substring(0, 100) + "...";
+	// } else {
+	// this.shortDescription = description2cut;
+	// }
+	//
+	// }
 
 	public long getId() {
 		return id;
@@ -152,10 +151,10 @@ public class Book implements Serializable {
 		return currentBorrowing;
 	}
 
-	public String getShortDescription() {
-		setShortDescription(this.description);
-		return shortDescription;
-	}
+	// public String getShortDescription() {
+	// setShortDescription(this.description);
+	// return shortDescription;
+	// }
 
 	/**
 	 * Borrow this book.

@@ -98,5 +98,13 @@
 			</action>
 		</release>
 
+		<release version="2.8.1" date="2013-03-21"
+			description="Release with much improved functionality">
+			<action dev="Shockwave Rebels" type="fix">
+				Removed feature for short descriptions introduced in version 2.8.0 due to an error running the system after build
+			</action>
+			
+		</release>
+
 	</body>
 </document>
