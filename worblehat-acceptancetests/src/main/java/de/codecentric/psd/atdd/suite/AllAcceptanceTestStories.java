@@ -15,6 +15,7 @@ import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
+import org.jbehave.core.steps.ParameterControls;
 import org.jbehave.core.steps.guice.GuiceStepsFactory;
 import org.jbehave.web.selenium.ContextView;
 import org.jbehave.web.selenium.LocalFrameContextView;
@@ -68,7 +69,10 @@ public class AllAcceptanceTestStories extends JUnitStories {
 						new StoryControls().doResetStateBeforeScenario(false))
 				.useStoryLoader(
 						new LoadFromClasspath(AllAcceptanceTestStories.class))
-				.useStoryReporterBuilder(reporterBuilder);
+				.useStoryReporterBuilder(reporterBuilder)
+				.useParameterControls(
+						new ParameterControls()
+								.useDelimiterNamedParameters(true));
 		useConfiguration(configuration);
 
 	}

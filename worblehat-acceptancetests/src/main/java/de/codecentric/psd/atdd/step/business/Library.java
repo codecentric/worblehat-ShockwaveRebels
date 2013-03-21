@@ -81,6 +81,16 @@ public class Library {
 				+ "', 2011)");
 	}
 
+	@Given("a single book with a long description <desc>")
+	public void createSingleBookWithLongDesc(@Named("description") String desc)
+			throws SQLException {
+		emptyLibrary();
+		database.execute("INSERT INTO Book(id,title,author,edition,desc,year,isbn) VALUES "
+				+ "(0, 'Title', 'Author', '1', '"
+				+ desc
+				+ "', 2011, 097522980X)");
+	}
+
 	// *****************
 	// *** W H E N *****
 	// *****************
@@ -89,7 +99,7 @@ public class Library {
 	// *** T H E N *****
 	// *****************
 
-	@Then("the library contains only the book with <isbn>")
+	@Then("the library contains only the book with $isbn")
 	public void shouldContainOnlyOneBook(@Named("isbn") String isbn)
 			throws SQLException {
 		database.shouldReturnExactlyOne("SELECT * FROM Book WHERE isbn = '"
@@ -148,6 +158,12 @@ public class Library {
 		database.shouldReturnNothing("SELECT * FROM Book WHERE isbn = '" + isbn
 				+ "' AND title ='" + title + "' AND edition ='" + edition + "'");
 	}
+
+	// @Then("the library contains only the book with <isbn2>")
+	// public void shouldContainOnlyOneBookByISBN(@Named("isbn") String isbn)
+	// throws SQLException {
+	// this.shouldContainOnlyOneBook(isbn);
+	// }
 
 	// *****************
 	// *** U T I L *****
