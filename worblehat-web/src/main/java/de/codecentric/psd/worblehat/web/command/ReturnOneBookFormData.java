@@ -16,8 +16,10 @@ public class ReturnOneBookFormData {
 	}
 
 	/**
-	 * @param emailAddress
+	 * @param email
 	 *            the user email address
+	 * @param isbn_title
+	 *            ISBN or title
 	 */
 	public ReturnOneBookFormData(String email, String isbn_title) {
 		this.email = email;
