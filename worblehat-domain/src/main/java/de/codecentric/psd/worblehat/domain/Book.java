@@ -144,6 +144,7 @@ public class Book implements Serializable {
 	}
 
 	public String getShortDescription() {
+		setShortDescription(this.description);
 		return shortDescription;
 	}
 
