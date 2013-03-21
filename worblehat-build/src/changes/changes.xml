@@ -68,5 +68,18 @@
 			</action>
 		</release>
 
+		<release version="2.7.0" date="2013-03-21"
+			description="Release with much improved functionality">
+			<action dev="Shockwave Rebels" type="update">
+				Deleting a single book from library by title, ISBN and edition 
+			</action>
+			<action dev="Shockwave Rebels" type="update">
+				ISBN numbers of length 13 will be supported
+			</action>
+			<action dev="Shockwave Rebels" type="update">
+				Returning of a single book by mail and ISBN or title 
+			</action>
+		</release>
+
 	</body>
 </document>
