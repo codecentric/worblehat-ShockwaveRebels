@@ -11,12 +11,11 @@ import com.google.inject.Inject;
 import de.codecentric.psd.atdd.library.Config;
 import de.codecentric.psd.atdd.library.SeleniumAdapter;
 
-public class BorrowBook {
-
+public class DeleteBook {
 	private WebDriver driver;
 
 	@Inject
-	public BorrowBook(SeleniumAdapter selenium) {
+	public DeleteBook(SeleniumAdapter selenium) {
 		driver = selenium.getDriver();
 	}
 
@@ -28,12 +27,12 @@ public class BorrowBook {
 	// *** W H E N *****
 	// *****************
 
-	@When("user <user> borrows the book <isbn>")
-	public void whenUseruserBorrowsTheBookisbn(@Named("user") String user,
-			@Named("isbn") String isbn) {
-		openBorrowBookPage();
-		typeIntoField("email", user);
-		typeIntoField("isbn", isbn);
+	@When("librarian deletes the book <isbn> <title> <edition>")
+	public void whenABookWithIsbnTitleEditionIsDeleted(
+			@Named("isbn") String isbn, @Named("title") String title,
+			@Named("edition") String edition) {
+		openDeleteBookPage();
+		fillInsertBookForm(title, edition, isbn);
 		submitForm();
 		try {
 			Thread.sleep(1000);
@@ -41,30 +40,43 @@ public class BorrowBook {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-
-	// *****************
-	// *** T H E N *****
-	// *****************
 
 	// *****************
 	// *** U T I L *****
 	// *****************
 
-	private void submitForm() {
-		driver.findElement(By.id("borrowBook")).click();
+	private void setTitle(String titel) {
+		typeIntoField("title", titel);
 	}
 
-	private void openBorrowBookPage() {
-		driver.get(Config.getApplicationURL() + "/"
-				+ Config.getApplicationContext() + "/borrow");
+	private void setEdition(String edition) {
+		typeIntoField("edition", edition);
+	}
+
+	private void setIsbn(String isbn) {
+		typeIntoField("isbn", isbn);
 	}
 
 	private void typeIntoField(String id, String value) {
 		WebElement element = driver.findElement(By.id(id));
 		element.clear();
 		element.sendKeys(value);
+	}
+
+	private void fillInsertBookForm(String titel, String edition, String isbn) {
+		setTitle(titel);
+		setEdition(edition);
+		setIsbn(isbn);
+	}
+
+	private void submitForm() {
+		driver.findElement(By.id("deleteBook")).click();
+	}
+
+	private void openDeleteBookPage() {
+		driver.get(Config.getApplicationURL() + "/"
+				+ Config.getApplicationContext() + "/deleteBook");
 	}
 
 }

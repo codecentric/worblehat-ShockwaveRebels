@@ -37,6 +37,13 @@ public class InsertBook {
 		openInsertBooksPage();
 		fillInsertBookForm("Title", "2", isbn, "Author", "2002");
 		submitForm();
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@When("the librarian tries to add a book with an <attribute> of <value>")
@@ -52,16 +59,15 @@ public class InsertBook {
 	// *** T H E N *****
 	// *****************
 
-
 	@Then("the page contains error message <message>")
-	public void thenThePageContainsErrorMessagemessage(@Named("message") String message){
+	public void thenThePageContainsErrorMessagemessage(
+			@Named("message") String message) {
 		assertThat(driver.getPageSource(), containsString(message));
 	}
 
 	// *****************
-	// *** U T I L ***** 
+	// *** U T I L *****
 	// *****************
-
 
 	private void setTitle(String titel) {
 		typeIntoField("title", titel);
