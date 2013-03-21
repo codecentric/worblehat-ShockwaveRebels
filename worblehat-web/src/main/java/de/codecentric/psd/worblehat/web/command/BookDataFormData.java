@@ -12,6 +12,7 @@ public class BookDataFormData {
 	private String isbn;
 	private String author;
 	private String description;
+	private String shortDescription;
 
 	private String trimStringOrNull(String s) {
 		if (s == null) {
@@ -30,6 +31,19 @@ public class BookDataFormData {
 			return s;
 		}
 
+	}
+
+	public void setShortDescription(String description2cut) {
+		if (description2cut.length() > 100) {
+			this.shortDescription = description2cut.substring(0, 100) + "...";
+		} else {
+			this.shortDescription = description2cut;
+		}
+
+	}
+
+	public String getShortDescription() {
+		return shortDescription;
 	}
 
 	public String getYear() {
