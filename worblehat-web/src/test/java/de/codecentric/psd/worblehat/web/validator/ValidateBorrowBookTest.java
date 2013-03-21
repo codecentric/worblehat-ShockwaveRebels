@@ -16,11 +16,12 @@ public class ValidateBorrowBookTest {
 
 	private static final String INVALID_ISBN = "978-3492285100-22";
 	private static final String VALID_ISBN = "90-70002-34-5";
-	private static final String VALID_EMAIL = "valid.user@worblehat.local";
+	private static final String VALID_EMAIL = "valid.user@worblehat.de";
 
 	private ValidateBorrowBook validateAddBook;
 
-	private BookBorrowFormData cmd = new BookBorrowFormData(VALID_ISBN, VALID_EMAIL);
+	private BookBorrowFormData cmd = new BookBorrowFormData(VALID_ISBN,
+			VALID_EMAIL);
 
 	@Before
 	public void setUp() {
