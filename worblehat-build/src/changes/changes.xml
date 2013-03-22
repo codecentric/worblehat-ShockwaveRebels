@@ -105,6 +105,14 @@
 			</action>
 			
 		</release>
+		
+		<release version="2.8.2" date="2013-03-22"
+			description="Release with much improved functionality">
+			<action dev="Shockwave Rebels" type="fix">
+				Removed feature from version 2.8.1 fixed and reintroduced
+			</action>
+			
+		</release>
 
 	</body>
 </document>
