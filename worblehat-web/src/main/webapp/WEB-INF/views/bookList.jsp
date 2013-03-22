@@ -29,7 +29,7 @@
 			<td>${book.edition}</td>
 			<td>${book.isbn}</td>
 			<td>${book.currentBorrowing.borrowerEmailAddress}</td>
-			<td>${book.description}</td>
+			<td>${book.shortDescription}</td>
 		</tr>
 	</c:forEach>
 	</tbody>
