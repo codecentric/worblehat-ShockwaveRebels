@@ -155,10 +155,10 @@ public class Book implements Serializable {
 	}
 
 	public String getShortDescription() {
-		if (description.length() > 100) {
-			this.shortDescription = description.substring(0, 100) + "...";
+		if (description != null && description.length() > 100) {
+			shortDescription = description.substring(0, 100) + "...";
 		} else {
-			this.shortDescription = description;
+			shortDescription = description;
 		}
 
 		return shortDescription;
